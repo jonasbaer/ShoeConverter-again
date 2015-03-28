@@ -8,7 +8,7 @@
 
 import UIKit
 
-let convertMultiplyer = 4
+let convertSum:Double = 30.5
 
 class ViewController: UIViewController {
 
@@ -29,12 +29,12 @@ class ViewController: UIViewController {
     @IBAction func convertButtonPressed(sender: UIButton) {
 
         if insertShoeSizeTextField.text != "" {
-            var shoeSizeInt = insertShoeSizeTextField.text.toInt()!
+            var shoeSize = Double((insertShoeSizeTextField.text as NSString).doubleValue)
 
-            var calculatedConvertedShowSize = shoeSizeInt * convertMultiplyer
+            var calculatedConvertedShowSize = shoeSize + convertSum
 
             convertedShowSizeLabel.hidden = false
-            convertedShowSizeLabel.text = "\(calculatedConvertedShowSize)"
+            convertedShowSizeLabel.text = "The calculated European Size is: \(calculatedConvertedShowSize)"
 
             insertShoeSizeTextField.text = ""
             convertButtonLabel.setTitle("Convert", forState: UIControlState.Normal)
