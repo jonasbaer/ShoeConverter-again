@@ -8,7 +8,13 @@
 
 import UIKit
 
+let convertMultiplyer = 4
+
 class ViewController: UIViewController {
+
+    @IBOutlet weak var insertShoeSizeTextField: UITextField!
+    @IBOutlet weak var convertButtonLabel: UIButton!
+    @IBOutlet weak var convertedShowSizeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func convertButtonPressed(sender: UIButton) {
 
+        if insertShoeSizeTextField.text != "" {
+            var shoeSizeInt = insertShoeSizeTextField.text.toInt()!
+
+            var calculatedConvertedShowSize = shoeSizeInt * convertMultiplyer
+
+            convertedShowSizeLabel.hidden = false
+            convertedShowSizeLabel.text = "\(calculatedConvertedShowSize)"
+
+            insertShoeSizeTextField.text = ""
+            convertButtonLabel.setTitle("Convert", forState: UIControlState.Normal)
+        }
+    }
 }
 
